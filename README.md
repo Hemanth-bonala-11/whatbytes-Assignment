@@ -1,4 +1,4 @@
-# Project Setup
+# Django Project Setup
 
 Follow these steps to set up a virtual environment, install the necessary packages, and start the Django server.
 
@@ -6,10 +6,10 @@ Follow these steps to set up a virtual environment, install the necessary packag
 
 ## Step 1: Create a Virtual Environment
 
-First, make sure you have `venv` installed. If not, install it with:
+First, make sure you have `virtualenv` installed. If not, install it with:
 
 ```bash
-pip install venv
+pip install virtualenv
 ```
 
 Now, create a virtual environment named `myenv`:
@@ -41,7 +41,13 @@ pip install -r requirements.txt
 
 ---
 
-## Step 3: Run the Django Server
+## Step 3: Migrate Tables and Run the Django Server
+
+Create Tables in database:
+
+```bash
+python manage.py migrate
+```
 
 Start the Django development server:
 
@@ -52,3 +58,4 @@ python manage.py runserver
 Now, your server should be up and running at `http://127.0.0.1:8000`.
 
 ---
+
