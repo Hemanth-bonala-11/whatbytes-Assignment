@@ -56,7 +56,7 @@ def signup_logic(request):
                     return render(request, 'authentication/signup.html', context)
             if re.fullmatch(r"\d+", password1):
                 context = {
-                'message': "Password can't be a commonly used password."
+                'message': "Password can't be a Numeric."
                 }
                 return render(request, 'authentication/signup.html', context)
             if password1.lower() in common_passwords:
