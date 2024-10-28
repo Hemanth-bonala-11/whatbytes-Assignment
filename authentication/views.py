@@ -3,6 +3,7 @@ from django.contrib.auth.hashers import make_password
 # Create your views here.
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
+import re
 
 def home(request):
     return render(request,"authentication/home.html")
@@ -21,12 +22,16 @@ def signup_logic(request):
             password1 = request.POST.get('password')
             password2 = request.POST.get('password-confirm')
 
+            common_passwords = ["12345678", "password", "123456789", "qwerty", "abc123", "password1"]
+
+
             if username==None or email==None:
                 context = {
                     'message': "User name and email should not be empty"
                 }
                 return render(request, 'authentication/signup.html', context)
             if password1!=password2:
+                    
                 context = {
                     'message': "Enter same password in confirm passwordrd field"
                 }
@@ -43,6 +48,23 @@ def signup_logic(request):
                     'message': "Email already exists"
                 }
                 return render(request, 'authentication/signup.html', context)
+            
+            if len(password1) < 8:
+                    context = {
+                    'message': "Password must contain at least 8 characters."
+                    }
+                    return render(request, 'authentication/signup.html', context)
+            if re.fullmatch(r"\d+", password1):
+                context = {
+                'message': "Password can't be a commonly used password."
+                }
+                return render(request, 'authentication/signup.html', context)
+            if password1.lower() in common_passwords:
+                context = {
+                'message': "Password can't be a commonly used password."
+                }
+                return render(request, 'authentication/signup.html', context)
+
 
 
             userObj = User.objects.create_user(username=username, email=email, password=password1)
