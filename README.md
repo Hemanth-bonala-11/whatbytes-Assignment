@@ -1,4 +1,4 @@
-# Django Project Setup
+# Project Setup
 
 Follow these steps to set up a virtual environment, install the necessary packages, and start the Django server.
 
@@ -52,14 +52,3 @@ python manage.py runserver
 Now, your server should be up and running at `http://127.0.0.1:8000`.
 
 ---
-
-### Additional Notes
-
-- Remember to deactivate the virtual environment when you're done:
-  ```bash
-  deactivate
-  ```
-
----
-
-**Happy Coding!**
