@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div style="display: flex; justify-content: center; align-items: center; min-height: 50vh; background-color: #f5f5f5; margin: 0; font-family: Arial, sans-serif;">
+    <div style=" padding: 2rem; border-radius: 10px; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); color: #fff; text-align: center;">
+        <h2 style=" background: linear-gradient(135deg, #ff736d, #f5a5a5); font-size: 24px;">Login</h2>
+        <form method="post"  action="/logging_in" style="display: flex; flex-direction: column;">
+            {% csrf_token %}
+            <label for="email" style="margin-bottom: 0.5rem; font-size: 14px; color: black;">Email / Username:</label>
+            <input type="text" id="email" name="email" required style="padding: 0.5rem; border: none; border-radius: 5px; margin-bottom: 1rem; font-size: 14px; color: #333;">
+            
+            <label for="password" style="margin-bottom: 0.5rem; font-size: 14px; color: black;">Password:</label>
+            <input type="password" id="password" name="password" required style="padding: 0.5rem; border: none; border-radius: 5px; margin-bottom: 1rem; font-size: 14px; color: #333;">
+            
+            <button type="submit" style="padding: 0.5rem; border: 1px solid #ff736d; border-radius: 5px; background-color: transparent; color: #ff736d; font-size: 14px; cursor: pointer; transition: background-color 0.3s, color 0.3s;">Login</button>
+        </form>
+        <div style="background: linear-gradient(135deg, #ff736d, #f5a5a5); margin-top: 1.5rem;">
+            <p style="font-size: 14px; color: #fff;">Don't have an account? <a href="/signup" style="color: black; text-decoration: none; transition: color 0.3s;">Sign Up</a></p>
+            <p style="font-size: 14px; color: #fff;"><a href="#" style="color: black; text-decoration: none; transition: color 0.3s;">Forgot password?</a></p>
+        </div>
+        <p align="center" class="error" style="color: red; margin: 2vh;">{{message}}</p>
+    </div>
+    
+</div>
+
+{% endblock %}

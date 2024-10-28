@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div style="background-color: #ff6f61; padding: 20px; border-radius: 8px; color: white; max-width: 400px; margin: 0 auto; text-align: center;">
+        <h2>Hi {{ user.username }}!</h2>
+        <p>Welcome to this brilliant example of an authentication app with cutting edge features.</p>
+        <p>Wanna try them?</p>
+        
+        <div style="background-color: white; color: #333; border-radius: 5px; padding: 10px; margin-top: 20px;">
+            <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="padding: 10px 0; border-bottom: 1px solid #ccc;"><a href="/profile" style="text-decoration: none; color: #ff6f61;">Profile</a></li>
+                <li style="padding: 10px 0; border-bottom: 1px solid #ccc;"><a href="/change_password" style="text-decoration: none; color: #ff6f61;">Change Password</a></li>
+                <li style="padding: 10px 0;"><a href="/logout" style="text-decoration: none; color: #ff6f61;">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
